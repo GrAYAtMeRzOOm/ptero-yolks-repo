@@ -26,8 +26,8 @@ jobs:
       - uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: pasindu23
-          password: Me0712835212
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v4
         with:
           context: ./ptero-yolks/${{ matrix.oses }}
