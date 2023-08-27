@@ -23,8 +23,11 @@ RUN apt install -y gcc g++ libgcc1 libc++-dev gdb libc6 git wget curl tar zip un
 ## Install MariaDB
 RUN apt-get install -y mariadb-server
 
-##MySQL set root password
-RUN service mysql start && mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'jUkETilGityR'; FLUSH PRIVILEGES;"
+## Set up MariaDB root password
+RUN service mysql start
+
+## Expose MySQL port (3306) if needed
+EXPOSE 3306
 
 ## Configure locale
 RUN update-locale lang=en_US.UTF-8 \
