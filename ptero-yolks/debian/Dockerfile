@@ -20,11 +20,8 @@ RUN apt install -y gcc g++ libgcc1 libc++-dev gdb libc6 git wget curl tar zip un
     libfontconfig libicu67 icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadbclient-dev-compat libduktape205 locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates \
     liblua5.3-0 libz-dev rapidjson-dev tzdata libevent-dev libzip4 libprotobuf23 libfluidsynth2 procps libstdc++6
 
-## Add MySQL APT repository and install MySQL Server
-RUN wget https://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb
-RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb
-RUN apt update
-RUN apt install -y mysql-server
+## Install MariaDB
+RUN apt-get install -y mariadb-server
 
 ##MySQL set root password
 RUN service mysql start && mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'jUkETilGityR'; FLUSH PRIVILEGES;"
