@@ -35,4 +35,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/GrAYAtMeRzOOm/ptero-yolks:${{ matrix.oses }}
+            ghcr.io/trons/ptero-yolks:${{ matrix.oses }}
