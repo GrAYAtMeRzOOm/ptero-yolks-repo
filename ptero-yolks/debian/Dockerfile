@@ -23,9 +23,6 @@ RUN apt install -y gcc g++ libgcc1 libc++-dev gdb libc6 git wget curl tar zip un
 ## Install MariaDB
 RUN apt-get install -y mariadb-server
 
-## Set up MariaDB root password
-RUN systemctl start mariadb
-
 ## Expose MySQL port (3306) if needed
 EXPOSE 3306
 
